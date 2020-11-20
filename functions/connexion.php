@@ -6,13 +6,13 @@ function verif_users_ident_mdp($ident=false,$mdp=false){
 		$retour=Bdd::prepare([
 			'type'=>'SELECT',
 			'table'=>'users',
-			'retour'=>'users_mdp',
+			'retour'=>'users_pwd',
 			'where'=>[
 				['users_ident',$ident,'STR'],
 			],
 		]);
 		if($retour){
-			return password_verify($mdp.hash_salt,$retour['users_mdp']);
+			return password_verify($mdp,$retour['users_pwd']);
 		}
 	}
 	return false;
