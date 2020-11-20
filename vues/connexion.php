@@ -1,5 +1,5 @@
 <?php defined($alea) or die(header('location: ../index.php'));?>
-
+<?php echo password_hash('frank',PASSWORD_DEFAULT);?>
 
 <form method="post" action="<?= site_url.'/?page=connexion'?>">
 	<input type="text" name="ident">
