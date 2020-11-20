@@ -1,0 +1,26 @@
+*{box-sizing:border-box}
+body{margin:0}
+.hidden{display:none !important}
+
+.admin-table{width:100%}
+.tr{display:flex}
+.tr-head{background-color:#DDD}
+.tr-body:nth-child(2n){background-color:#EEE}
+.td{padding:4px}
+.td-num{width:50px;text-align:center}
+.td-nom{width:calc(100% - 350px);text-align:left}
+.td-ident{width:150px;text-align:center}
+.td-niveau{width:100px;text-align:center}
+.trash-choix{display:flex;justify-content:center}
+
+.form-admin{}
+.form-admin>*{display:block}
+
+.trash-popup{position:fixed;z-index:999;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);display:flex;justify-content:center;align-items:center}
+.trash-popup>div{width:320px;background-color:#FFF;padding:20px}
+
+.array-classe{max-width:1280px;margin:20px auto;display:flex;justify-content:center;flex-wrap:wrap}
+.classe-etu{width:280px;text-align:center;padding:20px;border:1px solid #000;margin:1px}
+.array-classe-btn{display:flex;justify-content: center;}
+.classe-btn{display:inline-block;margin:0 auto;padding:10px;background-color:#00F;color:#FFF;border:none}
+.felicitation{background-color:#F00;color:#FFF}
