@@ -36,14 +36,45 @@ switch($page){
 		header('location: '.site_url.'/?page=connexion');
 		die();
 	break;
+	case 'user-team':
+		if(!SESSION_('connecte')){
+			header('location: '.site_url.'/?page=connexion');
+			die();
+		}
+		$error=Teams::type();
+		echo $error;
+		$team=false;
+		if(GET_('id')){
+			$teams_id=intval(GET_('id'));
+			$team=Bdd::prepare([
+				'type'=>'SELECT',
+				'table'=>'teams',
+				'retour'=>'teams_id,teams_name,teams_city',
+				'where'=>[
+					['teams_id',$teams_id,'INT'],
+				],
+			]);
+		}
+		include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/user-team.php';
+		include __VUES_DIR__.'/user-footer.php';
+	break;
 	case 'tableau-de-bord':
 		if(!SESSION_('connecte')){
 			header('location: '.site_url.'/?page=connexion');
 			die();
 		}
-		include __VUES_DIR__.'/admin-header.php';
-		include __VUES_DIR__.'/admin-tableau-de-bord.php';
-		include __VUES_DIR__.'/admin-footer.php';
+		$teams=Bdd::prepare([
+			'type'=>'SELECT-ALL',
+			'table'=>'teams',
+			'retour'=>'teams_id,teams_name',
+			'order'=>[
+				['teams_id','DESC'],
+			],
+		]);
+		include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/user-tableau-de-bord.php';
+		include __VUES_DIR__.'/user-footer.php';
 	break;
 	default:
 		header('location: '.site_url.'/?page=404');

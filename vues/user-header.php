@@ -11,5 +11,4 @@
 <header>
 	<a href="<?=site_url.'/?page=deconnexion'?>">deconnexion</a>
 	<a href="<?=site_url.'/?page=tableau-de-bord'?>">Mon tableau de bord</a>
-	<a href="<?=site_url.'/?page=admin-utilisateurs'?>">Liste des utilisateurs</a>
 </header>
