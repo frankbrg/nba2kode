@@ -59,6 +59,30 @@ switch($page){
 		include __VUES_DIR__.'/user-team.php';
 		include __VUES_DIR__.'/user-footer.php';
 	break;
+	case 'user-team-delete':
+		if(!SESSION_('connecte')){
+			header('location: '.site_url.'/?page=connexion');
+			die();
+		}
+		$error=Teams::type();
+		echo $error;
+		$team=false;
+		if(GET_('id')){
+			$teams_id=intval(GET_('id'));
+			$team=Bdd::prepare([
+				'type'=>'DELETE',
+				'table'=>'teams',
+				'where'=>[
+					['teams_id',$teams_id,'INT'],
+				],
+			]);
+		}
+		include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/user-tableau-de-bord.php';
+		include __VUES_DIR__.'/user-footer.php';
+		
+		header('location: '.site_url.'/?page=tableau-de-bord');
+	break;
 	case 'tableau-de-bord':
 		if(!SESSION_('connecte')){
 			header('location: '.site_url.'/?page=connexion');
