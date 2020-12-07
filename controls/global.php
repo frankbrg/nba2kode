@@ -76,8 +76,30 @@ switch($page){
 		include __VUES_DIR__.'/user-tableau-de-bord.php';
 		include __VUES_DIR__.'/user-footer.php';
 	break;
+
+	case 'json':
+		if(!SESSION_('connecte')){
+			header('location: '.site_url.'/?page=connexion');
+			die();
+		}
+		//include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/json.php';
+		include __VUES_DIR__.'/user-footer.php';
+	break;
+
+	case 'jsonTS':
+		if(!SESSION_('connecte')){
+			header('location: '.site_url.'/?page=connexion');
+			die();
+		}
+		include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/json.ts';
+		include __VUES_DIR__.'/user-footer.php';
+	break;
+
 	default:
 		header('location: '.site_url.'/?page=404');
 		die();
 	break;
+
 }
