@@ -5,7 +5,9 @@ if($teams){
 	// if($errortrash){
 	// 	echo '<div>Suppression de l\'utilisateur OK</div>';
 	// }
+	
 	echo
+	'<a href="'.site_url.'/?page=user-team">Ajouter</a>'.
 	'<div class="admin-table">'.
 		'<div class="thead">'.
 			'<div class="tr tr-head">'.

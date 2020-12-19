@@ -10,5 +10,6 @@
 <body class="body-<?=$page?>">
 <header>
 	<a href="<?=site_url.'/?page=deconnexion'?>">deconnexion</a>
-	<a href="<?=site_url.'/?page=tableau-de-bord'?>">Mon tableau de bord</a>
+	<a href="<?=site_url.'/?page=user-teams'?>">Teams</a>
+	<a href="<?=site_url.'/?page=user-matches'?>">Matches</a>
 </header>

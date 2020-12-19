@@ -10,7 +10,7 @@ switch($page){
 	break;
 	case 'connexion':
 		if(SESSION_('connecte')){
-			header('location: '.site_url.'/?page=tableau-de-bord');
+			header('location: '.site_url.'/?page=user-teams');
 			die();
 		}
 		$error=0;
@@ -20,7 +20,7 @@ switch($page){
 				$error=2;
 				if(verif_users_ident_mdp(POST_('ident'),POST_('mdp'))){
 					$_SESSION['connecte']=true;
-					header('location: '.site_url.'/?page=tableau-de-bord');
+					header('location: '.site_url.'/?page=user-teams');
 					die();
 				}
 			}
@@ -42,7 +42,6 @@ switch($page){
 			die();
 		}
 		$error=Teams::type();
-		echo $error;
 		$team=false;
 		if(GET_('id')){
 			$teams_id=intval(GET_('id'));
@@ -57,6 +56,28 @@ switch($page){
 		}
 		include __VUES_DIR__.'/user-header.php';
 		include __VUES_DIR__.'/user-team.php';
+		include __VUES_DIR__.'/user-footer.php';
+	break;
+	case 'user-matche':
+		if(!SESSION_('connecte')){
+			header('location: '.site_url.'/?page=connexion');
+			die();
+		}
+		$error=Teams::type();
+		$matches=false;
+		if(GET_('id')){
+			$matches_id=intval(GET_('id'));
+			$matches=Bdd::prepare([
+				'type'=>'SELECT',
+				'table'=>'matches',
+				'retour'=>'matches_id,matches_date,matches_location,teams_id_one,teams_id_two',
+				'where'=>[
+					['matches_id',$matches_id,'INT'],
+				],
+			]);
+		}
+		include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/user-matche.php';
 		include __VUES_DIR__.'/user-footer.php';
 	break;
 	case 'user-team-delete':
@@ -78,12 +99,12 @@ switch($page){
 			]);
 		}
 		include __VUES_DIR__.'/user-header.php';
-		include __VUES_DIR__.'/user-tableau-de-bord.php';
+		include __VUES_DIR__.'/user-user-teams.php';
 		include __VUES_DIR__.'/user-footer.php';
 		
-		header('location: '.site_url.'/?page=tableau-de-bord');
+		header('location: '.site_url.'/?page=user-teams');
 	break;
-	case 'tableau-de-bord':
+	case 'user-teams':
 		if(!SESSION_('connecte')){
 			header('location: '.site_url.'/?page=connexion');
 			die();
@@ -97,7 +118,24 @@ switch($page){
 			],
 		]);
 		include __VUES_DIR__.'/user-header.php';
-		include __VUES_DIR__.'/user-tableau-de-bord.php';
+		include __VUES_DIR__.'/user-teams.php';
+		include __VUES_DIR__.'/user-footer.php';
+	break;
+	case 'user-matches':
+		if(!SESSION_('connecte')){
+			header('location: '.site_url.'/?page=connexion');
+			die();
+		}
+		$matches=Bdd::prepare([
+			'type'=>'SELECT-ALL',
+			'table'=>'matches',
+			'retour'=>'matches_id,matches_date,matches_location,teams_id_one,teams_id_two',
+			'order'=>[
+				['matches_id','DESC'],
+			],
+		]);
+		include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/user-matches.php';
 		include __VUES_DIR__.'/user-footer.php';
 	break;
 	default:
