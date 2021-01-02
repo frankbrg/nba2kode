@@ -9,5 +9,6 @@ include __FUNCTIONS_DIR__.'/functions.php';
 include __FUNCTIONS_DIR__.'/connexion.php';
 include __FUNCTIONS_DIR__.'/bdd.php';
 include __FUNCTIONS_DIR__.'/teams.php';
+include __FUNCTIONS_DIR__.'/matches.php';
 
 include __CONTROLS_DIR__.'/global.php';

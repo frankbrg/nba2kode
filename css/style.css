@@ -9,6 +9,7 @@ body{margin:0}
 .td{padding:4px}
 .td-num{width:50px;text-align:center}
 .td-nom{width:calc(100% - 350px);text-align:left}
+.td-nom > p{margin-block-start:0em;margin-block-end:0em;}
 .td-ident{width:150px;text-align:center}
 .td-niveau{width:100px;text-align:center}
 .trash-choix{display:flex;justify-content:center}

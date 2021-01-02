@@ -19,16 +19,18 @@ echo
 	'<input type="hidden" name="type" value="'.$type.'">';
 	if($matches){
 		echo
-		'<input type="hidden" name="matches_id" value="'.$matches['matches_id'].'">';
+		'<input type="hidden" name="matches_id" value="'.$matches['matches_id'].'">'.
+		'<input type="hidden" name="matches_date_old" value="'.$date.'">';
 	}
+
 	echo
 	'<label for="matches_date">Date</label>'.
-	'<input type="text" name="matches_date" value="'.$date.'">'.
+	'<input type="date" name="matches_date" value="'.$date.'">'.
 	'<label for="matches_location">Location</label>'.
 	'<input type="text" name="matches_location" value="'.$location.'">'.
 	'<label for="teams_id_one">Team One</label>'.
-	'<input type="text" name="teams_id_one" value="'.$teamOne.'">'.
+	'<input type="number" name="teams_id_one" value="'.$teamOne.'">'.
 	'<label for="teams_id_two">Team Two</label>'.
-	'<input type="text" name="teams_id_two" value="'.$teamTwo.'">'.
+	'<input type="number" name="teams_id_two" value="'.$teamTwo.'">'.
 	'<button type="submit">Enregistrer</button>'.
 '</form>';

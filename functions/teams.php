@@ -68,7 +68,7 @@ class Teams{
 						$verifname=false;
 					}
 				}
-
+				var_dump($values);
 				if(Bdd::prepare([
 					'type'=>'SELECT',
 					'table'=>'teams',
@@ -76,12 +76,7 @@ class Teams{
 					'order'=>[['teams_id','DESC']],
 					'where'=>[['teams_id',POSTINT_('teams_id'),'INT']],
 				])&&$verifname){
-					Bdd::prepare([
-						'type'=>'UPDATE',
-						'table'=>'teams',
-						'values'=>$values,
-						'where'=>[['teams_id',POSTINT_('teams_id'),'INT']],
-					]);
+					var_dump(POSTINT_('teams_id'));
 					return 1;
 				}
 				return 3;

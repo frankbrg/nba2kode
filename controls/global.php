@@ -42,6 +42,7 @@ switch($page){
 			die();
 		}
 		$error=Teams::type();
+		echo $error;
 		$team=false;
 		if(GET_('id')){
 			$teams_id=intval(GET_('id'));
@@ -63,7 +64,8 @@ switch($page){
 			header('location: '.site_url.'/?page=connexion');
 			die();
 		}
-		$error=Teams::type();
+		$error=Matches::type();
+		echo $error;
 		$matches=false;
 		if(GET_('id')){
 			$matches_id=intval(GET_('id'));

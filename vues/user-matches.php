@@ -11,7 +11,7 @@ if($matches){
 	'<div class="admin-table">'.
 		'<div class="thead">'.
 			'<div class="tr tr-head">'.
-				'<div class="td td-nom">Num</div>'.
+				'<div class="td td-num">Num</div>'.
 				'<div class="td td-nom">Date</div>'.
 				'<div class="td td-nom">Location</div>'.
 				'<div class="td td-nom">Team One</div>'.
