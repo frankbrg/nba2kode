@@ -111,5 +111,34 @@ class Teams{
 		return false;
 	}
 
+	private function getTeams(){
+		$sql=Bdd::prepare([
+			'type'=>'SELECT-ALL',
+			'table'=>'teams',
+			'retour'=>'teams_id, teams_name',
+			'order'=>[
+				['teams_id','DESC'],
+			],
+		]);
+		for ($i=0; $i < count($sql); $i++) { 
+			$teams[$sql[$i]['teams_id']] = $sql[$i]['teams_name'];
+		}
+		return $teams;
+	}
 
+	public function generateCombobox($active, $name){
+		$comboBox = '<select name="'.$name.'">';
+		$values = $this->getTeams();
+
+		foreach ($values as $id => $value) {
+			if ($id == $active) {
+				$comboBox .= '<option value="'.$id.'" selected>'.$value.'</option>';
+			} else {
+				$comboBox .= '<option value="'.$id.'">'.$value.'</option>';
+			}
+		}
+		$comboBox .= '</select>';
+
+		return $comboBox;
+	}
 }

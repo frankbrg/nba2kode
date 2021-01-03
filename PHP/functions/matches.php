@@ -1,7 +1,7 @@
 <?php defined($alea) or die(header('location: ../index.php'));
 
 class Matches{
-//TODO
+	
 	public static function type(){
 		switch(POST_('type')){
 			case 'insert':

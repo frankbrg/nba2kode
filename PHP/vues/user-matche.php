@@ -22,15 +22,15 @@ echo
 		'<input type="hidden" name="matches_id" value="'.$matches['matches_id'].'">'.
 		'<input type="hidden" name="matches_date_old" value="'.$date.'">';
 	}
-
+	$combobox = new Teams();
 	echo
 	'<label for="matches_date">Date</label>'.
 	'<input type="date" name="matches_date" value="'.$date.'">'.
 	'<label for="matches_location">Location</label>'.
 	'<input type="text" name="matches_location" value="'.$location.'">'.
 	'<label for="teams_id_one">Team One</label>'.
-	'<input type="number" name="teams_id_one" value="'.$teamOne.'">'.
+	$combobox->generateCombobox($teamOne, "teams_id_one").
 	'<label for="teams_id_two">Team Two</label>'.
-	'<input type="number" name="teams_id_two" value="'.$teamTwo.'">'.
+	$combobox->generateCombobox($teamTwo, "teams_id_two").
 	'<button type="submit">Enregistrer</button>'.
 '</form>';

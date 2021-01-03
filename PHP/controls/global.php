@@ -136,6 +136,34 @@ switch($page){
 				['matches_id','DESC'],
 			],
 		]);
+
+		for ($i=0; $i < count($matches); $i++) { 
+			var_dump($matches[$i]['teams_id_one']);
+			$sql=Bdd::prepare([
+				'type'=>'SELECT',
+				'table'=>'teams',
+				'retour'=>'teams_name',
+				'where'=>[
+					['teams_id',intval($matches[$i]['teams_id_one']),'INT'],
+				],
+			]);
+			$matches[$i]['teams_id_one'] = $sql['teams_name'];
+		}
+
+		for ($i=0; $i < count($matches); $i++) { 
+			var_dump($matches[$i]['teams_id_two']);
+			$ZZ=Bdd::prepare([
+				'type'=>'SELECT',
+				'table'=>'teams',
+				'retour'=>'teams_name',
+				'where'=>[
+					['teams_id',intval($matches[$i]['teams_id_two']),'INT'],
+				],
+			]);
+			var_dump($sql);
+			$matches[$i]['teams_id_two'] = $sql['teams_name'];
+		}
+
 		include __VUES_DIR__.'/user-header.php';
 		include __VUES_DIR__.'/user-matches.php';
 		include __VUES_DIR__.'/user-footer.php';
@@ -164,7 +192,6 @@ switch($page){
 		
 		header('location: '.site_url.'/?page=user-matches');
 	break;
-
 	case 'json':
 		if(!SESSION_('connecte')){
 			header('location: '.site_url.'/?page=connexion');
@@ -174,7 +201,6 @@ switch($page){
 		include __VUES_DIR__.'/json.php';
 		include __VUES_DIR__.'/user-footer.php';
 	break;
-
 	case 'jsonTS':
 		if(!SESSION_('connecte')){
 			header('location: '.site_url.'/?page=connexion');
@@ -184,7 +210,6 @@ switch($page){
 		include __VUES_DIR__.'/json.ts';
 		include __VUES_DIR__.'/user-footer.php';
 	break;
-
 	default:
 		header('location: '.site_url.'/?page=404');
 		die();
