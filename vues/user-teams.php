@@ -5,7 +5,9 @@ if($teams){
 	// if($errortrash){
 	// 	echo '<div>Suppression de l\'utilisateur OK</div>';
 	// }
+	
 	echo
+	'<a href="'.site_url.'/?page=user-team">Ajouter</a>'.
 	'<div class="admin-table">'.
 		'<div class="thead">'.
 			'<div class="tr tr-head">'.
@@ -23,11 +25,11 @@ if($teams){
 						echo ($i+1).
 					'</div>'.
 					'<div class="td td-nom">'.
-						'<a href="'.site_url.'/?page=admin-utilisateur&id='.$teams[$i]['teams_id'].'">'.$teams[$i]['teams_name'].'</a>'.
+						'<a href="'.site_url.'/?page=user-team&id='.$teams[$i]['teams_id'].'">'.$teams[$i]['teams_name'].'</a>'.
 					'</div>'.
 
 					'<div class="td td-num">'.
-						'<div class="btn-trash" data-id="'.$teams[$i]['teams_id'].'">Trash</div>'.
+						'<a class="btn-trash" href="'.site_url.'/?page=user-team-delete&id='.$teams[$i]['teams_id'].'">Trash</a>'.
 					'</div>'.
 				'</div>';
 			}
