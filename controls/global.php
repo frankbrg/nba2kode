@@ -140,6 +140,30 @@ switch($page){
 		include __VUES_DIR__.'/user-matches.php';
 		include __VUES_DIR__.'/user-footer.php';
 	break;
+	case 'user-matche-delete':
+		if(!SESSION_('connecte')){
+			header('location: '.site_url.'/?page=connexion');
+			die();
+		}
+		$error=Matches::type();
+		echo $error;
+		$team=false;
+		if(GET_('id')){
+			$matches_id=intval(GET_('id'));
+			$team=Bdd::prepare([
+				'type'=>'DELETE',
+				'table'=>'matches',
+				'where'=>[
+					['matches_id',$matches_id,'INT'],
+				],
+			]);
+		}
+		include __VUES_DIR__.'/user-header.php';
+		include __VUES_DIR__.'/user-user-matches.php';
+		include __VUES_DIR__.'/user-footer.php';
+		
+		header('location: '.site_url.'/?page=user-matches');
+	break;
 	default:
 		header('location: '.site_url.'/?page=404');
 		die();

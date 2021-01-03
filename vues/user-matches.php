@@ -7,7 +7,7 @@ if($matches){
 	// }
 	
 	echo
-	'<a href="'.site_url.'/?page=user-team">Ajouter</a>'.
+	'<a href="'.site_url.'/?page=user-matche">Ajouter</a>'.
 	'<div class="admin-table">'.
 		'<div class="thead">'.
 			'<div class="tr tr-head">'.
@@ -42,7 +42,7 @@ if($matches){
 						'<p>'.$matches[$i]['teams_id_two'].'</p>'.
 					'</div>'.
 					'<div class="td td-num">'.
-						'<a class="btn-trash" href="'.site_url.'/?page=user-team-delete&id='.$matches[$i]['matches_id'].'">Trash</a>'.
+						'<a class="btn-trash" href="'.site_url.'/?page=user-matche-delete&id='.$matches[$i]['matches_id'].'">Trash</a>'.
 					'</div>'.
 				'</div>';
 			}
