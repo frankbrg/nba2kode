@@ -75,6 +75,12 @@ class Teams{
 					'order'=>[['teams_id','DESC']],
 					'where'=>[['teams_id',POSTINT_('teams_id'),'INT']],
 				])&&$verifname){
+					Bdd::prepare([
+						'type'=>'UPDATE',
+						'table'=>'teams',
+						'values'=>$values,
+						'where'=>[['teams_id',POSTINT_('teams_id'),'INT']],
+					]);
 					return 1;
 				}
 				return 3;

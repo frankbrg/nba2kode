@@ -42,7 +42,6 @@ switch($page){
 			die();
 		}
 		$error=Teams::type();
-		echo $error;
 		$team=false;
 		if(GET_('id')){
 			$teams_id=intval(GET_('id'));
@@ -65,7 +64,6 @@ switch($page){
 			die();
 		}
 		$error=Matches::type();
-		echo $error;
 		$matches=false;
 		if(GET_('id')){
 			$matches_id=intval(GET_('id'));
@@ -88,7 +86,6 @@ switch($page){
 			die();
 		}
 		$error=Teams::type();
-		echo $error;
 		$team=false;
 		if(GET_('id')){
 			$teams_id=intval(GET_('id'));
@@ -114,7 +111,7 @@ switch($page){
 		$teams=Bdd::prepare([
 			'type'=>'SELECT-ALL',
 			'table'=>'teams',
-			'retour'=>'teams_id,teams_name',
+			'retour'=>'teams_id,teams_name,teams_city',
 			'order'=>[
 				['teams_id','DESC'],
 			],
@@ -171,11 +168,10 @@ switch($page){
 			die();
 		}
 		$error=Matches::type();
-		echo $error;
-		$team=false;
+		$matche=false;
 		if(GET_('id')){
 			$matches_id=intval(GET_('id'));
-			$team=Bdd::prepare([
+			$matche=Bdd::prepare([
 				'type'=>'DELETE',
 				'table'=>'matches',
 				'where'=>[

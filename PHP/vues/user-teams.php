@@ -11,7 +11,8 @@ if($teams){
 		'<div class="thead">'.
 			'<div class="tr tr-head">'.
 				'<div class="td td-num">Num</div>'.
-				'<div class="td td-nom">Teams</div>'.
+				'<div class="td td-nom">Name</div>'.
+				'<div class="td td-nom">City</div>'.
 				'<div class="td td-num">Trash</div>'.
 			'</div>'.
 		'</div>'.
@@ -26,7 +27,9 @@ if($teams){
 					'<div class="td td-nom">'.
 						'<a href="'.site_url.'/?page=user-team&id='.$teams[$i]['teams_id'].'">'.$teams[$i]['teams_name'].'</a>'.
 					'</div>'.
-
+					'<div class="td td-nom">'.
+						$teams[$i]['teams_city'].
+					'</div>'.
 					'<div class="td td-num">'.
 						'<a class="btn-trash" href="'.site_url.'/?page=user-team-delete&id='.$teams[$i]['teams_id'].'">Trash</a>'.
 					'</div>'.
