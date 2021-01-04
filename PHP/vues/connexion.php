@@ -1,11 +1,20 @@
 <?php defined($alea) or die(header('location: ../index.php'));?>
 
-<form method="post" action="<?= site_url.'/?page=connexion'?>">
-	<input type="text" name="ident">
-	<input type="password" name="mdp">
-	<input type="hidden" name="token" value="<?=TOKEN_('reirhergreh');?>">
-	<button type="submit">Connecter</button>
-</form>
+<div class="container">
+	<form method="post" class="form"action="<?= site_url.'/?page=connexion'?>">
+		<div>
+		<label for="teams_name">Username</label>
+		<input type="text" name="ident">
+		</div>
+		<div>
+		<label for="teams_name">Password</label>
+		<input type="password" name="mdp">
+		</div>
+		<input type="hidden" name="token" value="<?=TOKEN_('reirhergreh');?>">
+		<button type="submit">Connect</button>
+	</form>
+</div>
+
 <?php
 	switch($error){
 		case 1:

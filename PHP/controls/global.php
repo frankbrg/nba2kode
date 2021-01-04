@@ -138,7 +138,6 @@ switch($page){
 		]);
 
 		for ($i=0; $i < count($matches); $i++) { 
-			var_dump($matches[$i]['teams_id_one']);
 			$sql=Bdd::prepare([
 				'type'=>'SELECT',
 				'table'=>'teams',
@@ -151,8 +150,7 @@ switch($page){
 		}
 
 		for ($i=0; $i < count($matches); $i++) { 
-			var_dump($matches[$i]['teams_id_two']);
-			$ZZ=Bdd::prepare([
+			$sql=Bdd::prepare([
 				'type'=>'SELECT',
 				'table'=>'teams',
 				'retour'=>'teams_name',
@@ -160,7 +158,6 @@ switch($page){
 					['teams_id',intval($matches[$i]['teams_id_two']),'INT'],
 				],
 			]);
-			var_dump($sql);
 			$matches[$i]['teams_id_two'] = $sql['teams_name'];
 		}
 
