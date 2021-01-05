@@ -2,7 +2,7 @@
 define('__CONTROLS_DIR__',__SITE_DIR__.'/controls');
 define('__FUNCTIONS_DIR__',__SITE_DIR__.'/functions');
 define('__VUES_DIR__',__SITE_DIR__.'/vues');
-define('site_url','http://localhost:8888/nba2kode');
+define('site_url','http://localhost:8888/nba2kode/PHP');
 define('hash_salt','fu3903ehfuf324903UDSIF68790°+40');
 define('token_salt','5085f43d9afc4ff2cd544.?)5cf6c44da0c');
 

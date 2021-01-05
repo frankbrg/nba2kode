@@ -27,7 +27,7 @@
 
   //Afficher le tableau au format JSON
   echo json_encode($data), "\n";
-  echo json_encode($data1), "\n";
+  //echo json_encode($data1), "\n";
 
   //echo json_encode($data);
  

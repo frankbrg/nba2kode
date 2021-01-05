@@ -166,16 +166,13 @@ switch($page){
 	break;
 
 	case 'json':
-		if(!SESSION_('connecte')){
-			header('location: '.site_url.'/?page=connexion');
-			die();
-		}
+		
 		//include __VUES_DIR__.'/user-header.php';
 		include __VUES_DIR__.'/json.php';
-		include __VUES_DIR__.'/user-footer.php';
+		//include __VUES_DIR__.'/user-footer.php';
 	break;
 
-	case 'jsonTS':
+	/*case 'jsonTS':
 		if(!SESSION_('connecte')){
 			header('location: '.site_url.'/?page=connexion');
 			die();
@@ -183,7 +180,7 @@ switch($page){
 		include __VUES_DIR__.'/user-header.php';
 		include __VUES_DIR__.'/json.ts';
 		include __VUES_DIR__.'/user-footer.php';
-	break;
+	break;*/
 
 	default:
 		header('location: '.site_url.'/?page=404');
