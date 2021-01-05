@@ -13,6 +13,6 @@
 		<li class="menu-item"><a href="<?=site_url.'/?page=user-teams'?>">NBA2KODE</a></li>
 		<li class="menu-item"><a href="<?=site_url.'/?page=user-teams'?>">Teams</a></li>
 		<li class="menu-item"><a href="<?=site_url.'/?page=user-matches'?>">Matches</a></li>
-		<li class="menu-item"><a href="<?=site_url.'/?page=deconnexion'?>">Déconnexion</a></li>
+		<li class="menu-item"><a href="<?=site_url.'/?page=deconnexion'?>">Disconnect</a></li>
 	</ul>
 </header>

@@ -46,9 +46,9 @@ if($matches){
 				'</div>';
 			}
 			echo
-			'<a href="'.site_url.'/?page=user-matche">Ajouter</a>'.
 		'</div>'.
-	'</div>';
+	'</div>'.
+	'<a class="add" href="'.site_url.'/?page=user-matche">Add</a>';
 }else{
 	echo 'No data';
 }

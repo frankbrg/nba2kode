@@ -37,8 +37,8 @@ if($teams){
 			}
 			echo
 		'</div>'.
-		'<a href="'.site_url.'/?page=user-team">Ajouter</a>'.
-	'</div>';
+	'</div>'.
+	'<a class="add" href="'.site_url.'/?page=user-team">Add</a>';
 }else{
 	echo 'No data';
 }
