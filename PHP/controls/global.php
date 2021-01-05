@@ -42,7 +42,6 @@ switch($page){
 			die();
 		}
 		$error=Teams::type();
-		echo $error;
 		$team=false;
 		if(GET_('id')){
 			$teams_id=intval(GET_('id'));
@@ -65,7 +64,6 @@ switch($page){
 			die();
 		}
 		$error=Matches::type();
-		echo $error;
 		$matches=false;
 		if(GET_('id')){
 			$matches_id=intval(GET_('id'));
@@ -88,7 +86,6 @@ switch($page){
 			die();
 		}
 		$error=Teams::type();
-		echo $error;
 		$team=false;
 		if(GET_('id')){
 			$teams_id=intval(GET_('id'));
@@ -114,7 +111,7 @@ switch($page){
 		$teams=Bdd::prepare([
 			'type'=>'SELECT-ALL',
 			'table'=>'teams',
-			'retour'=>'teams_id,teams_name',
+			'retour'=>'teams_id,teams_name,teams_city',
 			'order'=>[
 				['teams_id','DESC'],
 			],
@@ -136,6 +133,31 @@ switch($page){
 				['matches_id','DESC'],
 			],
 		]);
+
+		for ($i=0; $i < count($matches); $i++) { 
+			$sql=Bdd::prepare([
+				'type'=>'SELECT',
+				'table'=>'teams',
+				'retour'=>'teams_name',
+				'where'=>[
+					['teams_id',intval($matches[$i]['teams_id_one']),'INT'],
+				],
+			]);
+			$matches[$i]['teams_id_one'] = $sql['teams_name'];
+		}
+
+		for ($i=0; $i < count($matches); $i++) { 
+			$sql=Bdd::prepare([
+				'type'=>'SELECT',
+				'table'=>'teams',
+				'retour'=>'teams_name',
+				'where'=>[
+					['teams_id',intval($matches[$i]['teams_id_two']),'INT'],
+				],
+			]);
+			$matches[$i]['teams_id_two'] = $sql['teams_name'];
+		}
+
 		include __VUES_DIR__.'/user-header.php';
 		include __VUES_DIR__.'/user-matches.php';
 		include __VUES_DIR__.'/user-footer.php';
@@ -146,11 +168,10 @@ switch($page){
 			die();
 		}
 		$error=Matches::type();
-		echo $error;
-		$team=false;
+		$matche=false;
 		if(GET_('id')){
 			$matches_id=intval(GET_('id'));
-			$team=Bdd::prepare([
+			$matche=Bdd::prepare([
 				'type'=>'DELETE',
 				'table'=>'matches',
 				'where'=>[
@@ -164,7 +185,6 @@ switch($page){
 		
 		header('location: '.site_url.'/?page=user-matches');
 	break;
-
 	case 'json':
 		
 		//include __VUES_DIR__.'/user-header.php';

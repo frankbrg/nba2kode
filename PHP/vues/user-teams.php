@@ -7,13 +7,13 @@ if($teams){
 	// }
 	
 	echo
-	'<a href="'.site_url.'/?page=user-team">Ajouter</a>'.
-	'<div class="admin-table">'.
+	'<div class="table">'.
 		'<div class="thead">'.
 			'<div class="tr tr-head">'.
 				'<div class="td td-num">Num</div>'.
-				'<div class="td td-nom">Equipe</div>'.
-				'<div class="td td-num"></div>'.
+				'<div class="td td-nom">Name</div>'.
+				'<div class="td td-nom">City</div>'.
+				'<div class="td td-num">Trash</div>'.
 			'</div>'.
 		'</div>'.
 		'<div class="tbody">';
@@ -27,7 +27,9 @@ if($teams){
 					'<div class="td td-nom">'.
 						'<a href="'.site_url.'/?page=user-team&id='.$teams[$i]['teams_id'].'">'.$teams[$i]['teams_name'].'</a>'.
 					'</div>'.
-
+					'<div class="td td-nom">'.
+						$teams[$i]['teams_city'].
+					'</div>'.
 					'<div class="td td-num">'.
 						'<a class="btn-trash" href="'.site_url.'/?page=user-team-delete&id='.$teams[$i]['teams_id'].'">Trash</a>'.
 					'</div>'.
@@ -35,20 +37,8 @@ if($teams){
 			}
 			echo
 		'</div>'.
-	'</div>'.
-	'<div class="trash-popup hidden">'.
-		'<div>'.
-			'<h2>Voulez-vous supprimer : <b></b></h2>'.
-			'<div class="trash-choix">'.
-				'<form method="POST">'.
-					'<input type="hidden" name="type" value="trash">'.
-					'<input type="hidden" name="teams_id">'.
-					'<button type="submit" class="btn-trash-yes">OUI</button>'.
-				'</form>'.
-				'<button type="button" class="btn-trash">NON</button>'.
-			'</div>'.
-		'</div>'.
+		'<a href="'.site_url.'/?page=user-team">Ajouter</a>'.
 	'</div>';
 }else{
-	echo 'Attention pas d\'équipe.';
+	echo 'No data';
 }

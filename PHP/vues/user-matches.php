@@ -7,8 +7,7 @@ if($matches){
 	// }
 	
 	echo
-	'<a href="'.site_url.'/?page=user-matche">Ajouter</a>'.
-	'<div class="admin-table">'.
+	'<div class="table">'.
 		'<div class="thead">'.
 			'<div class="tr tr-head">'.
 				'<div class="td td-num">Num</div>'.
@@ -16,7 +15,7 @@ if($matches){
 				'<div class="td td-nom">Location</div>'.
 				'<div class="td td-nom">Team One</div>'.
 				'<div class="td td-nom">Team Two</div>'.
-				'<div class="td td-num"></div>'.
+				'<div class="td td-num"> Trash</div>'.
 
 			'</div>'.
 		'</div>'.
@@ -47,21 +46,9 @@ if($matches){
 				'</div>';
 			}
 			echo
-		'</div>'.
-	'</div>'.
-	'<div class="trash-popup hidden">'.
-		'<div>'.
-			'<h2>Voulez-vous supprimer : <b></b></h2>'.
-			'<div class="trash-choix">'.
-				'<form method="POST">'.
-					'<input type="hidden" name="type" value="trash">'.
-					'<input type="hidden" name="matches_id">'.
-					'<button type="submit" class="btn-trash-yes">OUI</button>'.
-				'</form>'.
-				'<button type="button" class="btn-trash">NON</button>'.
-			'</div>'.
+			'<a href="'.site_url.'/?page=user-matche">Ajouter</a>'.
 		'</div>'.
 	'</div>';
 }else{
-	echo 'Attention pas d\'équipe.';
+	echo 'No data';
 }

@@ -7,9 +7,12 @@
 	<title><?=$page?></title>
 	<link rel="stylesheet" type="text/css" href="<?=site_url.'/css/style.css'?>">
 </head>
-<body class="body-<?=$page?>">
+<body class="body body-<?=$page?>">
 <header>
-	<a href="<?=site_url.'/?page=deconnexion'?>">deconnexion</a>
-	<a href="<?=site_url.'/?page=user-teams'?>">Teams</a>
-	<a href="<?=site_url.'/?page=user-matches'?>">Matches</a>
+	<ul class="menu">
+		<li class="menu-item"><a href="<?=site_url.'/?page=user-teams'?>">NBA2KODE</a></li>
+		<li class="menu-item"><a href="<?=site_url.'/?page=user-teams'?>">Teams</a></li>
+		<li class="menu-item"><a href="<?=site_url.'/?page=user-matches'?>">Matches</a></li>
+		<li class="menu-item"><a href="<?=site_url.'/?page=deconnexion'?>">Déconnexion</a></li>
+	</ul>
 </header>
